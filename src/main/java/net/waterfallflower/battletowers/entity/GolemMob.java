@@ -141,25 +141,9 @@ public class GolemMob extends MonsterBase {
         this.session_growl = (tag.getByte("hasGrowled") & 0xFF);
         this.pathToEntity = (tag.getByte("rageCounter") & 0xFF);
         this.drops = (tag.getByte("Drops") & 0xFF);
-        this.movementSpeed = 0.35f + (float)((450 - this.health) / 1750.0);
+        this.movementSpeed = 0.35f + (float) ((450 - this.health) / 1750.0);
         this.texture = "/assets/battletowers/textures/mob/" + (this.agressive_mode == 1 ? "golemdormant.png" : "golem.png");
         super.attackDamage = 8;
-    }
-
-    protected boolean getFuncHappyMan() {
-        int i = -1;
-        int j = 0;
-        //TODO: INVALID
-        //try {
-        //    final Field field = EntityLiving.class.getDeclaredField("team");
-        //    i = field.getInt(this);
-        //    final Field field2 = EntityLiving.class.getDeclaredField("team");
-        //    j = field2.getInt(((EntityCreature)this).playerToAttack);
-        //}
-        //catch (Exception exception) {
-        //    if (!(exception instanceof SecurityException) && !(exception instanceof NoSuchFieldException) && exception instanceof IllegalAccessException) {}
-        //}
-        return false;
     }
 
     @Override

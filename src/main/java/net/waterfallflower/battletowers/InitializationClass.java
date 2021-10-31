@@ -1,16 +1,38 @@
 package net.waterfallflower.battletowers;
 
+import lombok.SneakyThrows;
+import net.fabricmc.loader.api.FabricLoader;
 import net.mine_diver.unsafeevents.listener.EventListener;
 import net.modificationstation.stationapi.api.client.event.render.entity.EntityRendererRegisterEvent;
 import net.modificationstation.stationapi.api.event.entity.EntityRegister;
 import net.modificationstation.stationapi.api.event.level.gen.LevelGenEvent;
+import net.modificationstation.stationapi.api.event.mod.InitEvent;
 import net.waterfallflower.battletowers.entity.GolemMob;
 import net.waterfallflower.battletowers.entity.GolemRenderer;
 import net.waterfallflower.battletowers.level.TowerGenerator;
 
+import java.io.File;
+import java.io.FileReader;
+import java.io.FileWriter;
+import java.util.Properties;
+
 public class InitializationClass {
     public static int CURRENT = 3;
     private int tower1 = 200;
+
+    @SneakyThrows
+    @EventListener
+    public void initConfig(InitEvent event) {
+        File configFile = new File(FabricLoader.getInstance().getGameDirectory(), "battletowers.properties");
+        Properties properties = new Properties();
+        if(configFile.exists()) {
+            properties.load(new FileReader(configFile));
+            CURRENT = Integer.parseInt(String.valueOf(properties.getProperty("rarity")));
+        }else {
+            properties.put("rarity", String.valueOf(CURRENT));
+            properties.store(new FileWriter(configFile), "Config for BattleTowersFabric mod.");
+        }
+    }
 
     @EventListener
     public void registerEntity(EntityRegister entityRegister) {
