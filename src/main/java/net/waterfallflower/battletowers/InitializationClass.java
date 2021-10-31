@@ -30,7 +30,8 @@ public class InitializationClass {
             CURRENT = Integer.parseInt(String.valueOf(properties.getProperty("rarity")));
         }else {
             properties.put("rarity", String.valueOf(CURRENT));
-            properties.store(new FileWriter(configFile), "Config for BattleTowersFabric mod.");
+            properties.store(new FileWriter(configFile), "Config for BattleTowersFabric mod. " +
+                    "1 -> very common. 3 -> default value. 8 -> default for rarity. 20 -> very rare. 50 -> very hard to find.");
         }
     }
 
