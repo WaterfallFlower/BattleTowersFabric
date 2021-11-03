@@ -20,6 +20,7 @@ public class InitializationClass {
     public static int CURRENT = 3;
     private int tower1 = 200;
 
+    @SuppressWarnings("unused")
     @SneakyThrows
     @EventListener
     public void initConfig(InitEvent event) {
@@ -35,16 +36,19 @@ public class InitializationClass {
         }
     }
 
+    @SuppressWarnings("unused")
     @EventListener
     public void registerEntity(EntityRegister entityRegister) {
         entityRegister.register(GolemMob.class, "battletowers:golem");
     }
 
+    @SuppressWarnings("unused")
     @EventListener
     public void registerEntityRenderer(EntityRendererRegisterEvent event) {
         event.renderers.put(GolemMob.class, new GolemRenderer());
     }
 
+    @SuppressWarnings("unused")
     @EventListener
     public void generateTower(LevelGenEvent.ChunkDecoration event) {
         if(event.level.dimension.id == 0) {
