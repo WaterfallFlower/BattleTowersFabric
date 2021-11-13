@@ -13,5 +13,5 @@ Ported for minecraft b1.7.3, cursed fabric.
 ## Building and executing
 For additional information, please visit [BIN-fabric-example-mod](https://github.com/calmilamsy/BIN-fabric-example-mod) and [stationapi-example-mod](https://github.com/calmilamsy/stationapi-example-mod/).
 
-##Licence
+## Licence
 This is project is under [MIT Licence](https://github.com/WaterfallFlower/BattleTowersFabric/blob/master/LICENSE). Additional information about this license can be found there: https://opensource.org/licenses/MIT
